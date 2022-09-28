@@ -1,0 +1,11 @@
+.generateBtn{
+    border:none;
+    border-radius: 5px;
+    padding: 10px;
+    color: #0a2022;
+    background-color: #31C6D4;
+}
+
+.generateBtn:hover{
+    border:solid #123831 1px;
+}
