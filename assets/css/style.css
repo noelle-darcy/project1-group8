@@ -2,10 +2,10 @@
     border:none;
     border-radius: 5px;
     padding: 10px;
-    color: #0a2022;
-    background-color: #31C6D4;
+    color: #DFF0EA;
+    background-color: #574F7D;
 }
 
 .generateBtn:hover{
-    border:solid #123831 1px;
+    border:solid #4F3A65 1px;
 }
