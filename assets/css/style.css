@@ -6,6 +6,8 @@ body {
 
   header {
     background: url("../image/pexels-anni-roenkae-3435249.jpg");
+    background-position: center;
+    background-size: cover;
     background-color: #4F3A65;
     color: #DFF0EA;
     text-align: center;
