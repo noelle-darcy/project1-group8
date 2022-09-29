@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 body {
     background-color: #95ADBE;
     font-family: 'Noto Sans Mono', monospace;
@@ -20,7 +20,7 @@ body {
     font-family: 'Noto Sans Mono', monospace;
     padding: 30px;
   }
-=======
+
 .generateBtn{
     border:none;
     border-radius: 5px;
@@ -31,5 +31,3 @@ body {
 
 .generateBtn:hover{
     border:solid #4F3A65 1px;
-}
->>>>>>> 389b1e52c9709ba8cee7712c1c09638c23097800
