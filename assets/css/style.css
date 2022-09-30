@@ -12,6 +12,7 @@ body {
     color: #DFF0EA;
     text-align: center;
     font-size: 80px;
+    padding: 50px;
   }
   
   h1 {
@@ -24,6 +25,21 @@ body {
     padding: 30px;
   }
 
+  section {
+    flex-wrap: wrap;
+    font-size: 20px;
+    font-family: 'Noto Sans Mono', monospace;
+    padding: 100px;
+    background-color: #4F3A65;
+    color: #DFF0EA;
+    padding-left: 200px;
+  }
+
+  legend {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 30px;
+  }
 .generateBtn{
     border:none;
     border-radius: 5px;
