@@ -72,12 +72,15 @@ function genres(data) {
   // }
 }
 
-function esrbRating(data) {
-  // console.log(data.results[i]);
-  // console.log(data);
-  // var rating_id = data.results[i].esrb_rating.id;
-  if (data.esrb_rating != null) {
-    rating_id = data.esrb_rating;
+  function esrbRating(data) {
+    // console.log(data.results[i]);
+    // console.log(data);
+    // var rating_id = data.results[i].esrb_rating.id;
+    if (data.esrb_rating != null) {
+        rating_id = data.esrb_rating;
+        // console.log(rating_id);
+    }
+
     // console.log(rating_id);
   }
   // console.log(rating_id);
