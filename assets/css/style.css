@@ -12,7 +12,7 @@ body {
     color: #DFF0EA;
     text-align: center;
     font-size: 80px;
-    padding: 50px;
+    padding: 2cm;
   }
   
   h1 {
@@ -24,6 +24,12 @@ body {
     font-family: 'Noto Sans Mono', monospace;
     padding: 30px;
   }
+
+h3 {
+  text-align: center;
+  font-size: 30px;
+  padding: 2cm;
+}
 
   section {
     flex-wrap: wrap;
@@ -40,8 +46,14 @@ body {
     font-weight: bolder;
     font-size: 30px;
   }
+
+  divbutton {
+    text-align: center;
+    padding: 2cm;
+  }
+
 .generateBtn{
-    border:none;
+    border: none;
     border-radius: 5px;
     padding: 10px;
     color: #DFF0EA;

@@ -2,7 +2,9 @@ var submitBtn = document.querySelector(".generateBtn");
 var gameNameEl = document.getElementById("gameName");
 
 function generate(e) {
-  window.location.href = "p2.index.html";
+  if (e.target === submitBtn) {
+    window.location.href = "p2.index.html";
+  }
 }
 
 addEventListener("click", generate);
