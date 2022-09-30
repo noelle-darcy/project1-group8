@@ -1,5 +1,3 @@
-var newsArticle = document.querySelector("aside");
-
 const options = {
   method: "GET",
   headers: {
@@ -10,5 +8,10 @@ const options = {
 
 fetch("https://gaming-news.p.rapidapi.com/news", options)
   .then((response) => response.json())
-  .then((response) => console.log(response))
+  .then((response) => {
+    console.log(response);
+    document.querySelector(".articleUrl").innerText = `Url: ${response[0].url}`;
+    document.querySelector(".title").innerText = `Title: ${response[0].title}`;
+    document.querySelector(".src").innerText = `Source: ${response[0].source}`;
+  })
   .catch((err) => console.error(err));
