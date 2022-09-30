@@ -1,0 +1,37 @@
+
+body {
+    background-color: #95ADBE;
+    font-family: 'Noto Sans Mono', monospace;
+  }
+
+  header {
+    background: url("../image/pexels-anni-roenkae-3435249.jpg");
+    background-position: center;
+    background-size: cover;
+    background-color: #4F3A65;
+    color: #DFF0EA;
+    text-align: center;
+    font-size: 80px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  p {
+    font-size: 30px;
+    font-family: 'Noto Sans Mono', monospace;
+    padding: 30px;
+  }
+
+.generateBtn{
+    border:none;
+    border-radius: 5px;
+    padding: 10px;
+    color: #DFF0EA;
+    background-color: #574F7D;
+}
+
+.generateBtn:hover{
+    border:solid #DFF0EA 1.5px;
+}
