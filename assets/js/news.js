@@ -10,16 +10,20 @@ fetch("https://gaming-news.p.rapidapi.com/news", options)
   .then((response) => response.json())
   .then((response) => {
     console.log(response);
-    for (i = 0; i < response.length; i++) {
-      var art = (document.querySelector(
-        ".articleUrl"
-      ).innerText = `Url: ${response[i].url}`);
-      document.querySelector(
-        ".title"
-      ).innerText = `Title: ${response[i].title}`;
-      document.querySelector(
-        ".src"
-      ).innerText = `Source: ${response[i].source}`;
-    }
+    // for (i = 0; i < response.length; i++) {
+    var min = 0;
+    var max = response.length;
+    var randomNum = Math.floor(Math.random() * (max - min) + min);
+    console.log(randomNum);
+    var art = (document.querySelector(
+      ".articleUrl"
+    ).innerText = `Url: ${response[randomNum].url}`);
+    document.querySelector(
+      ".title"
+    ).innerText = `Title: ${response[randomNum].title}`;
+    document.querySelector(
+      ".src"
+    ).innerText = `Source: ${response[randomNum].source}`;
+    // }
   })
   .catch((err) => console.error(err));
