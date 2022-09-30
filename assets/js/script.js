@@ -55,7 +55,8 @@ const apiKey = '4fde65f23f6d46c2aba8a6a1773fe57f';
     var filteredObj = {
         name: '',
         genres: [],
-        esrbRating: ''
+        esrbRating: '',
+        platform: []
     }
     console.log(data);
     filteredObj.name = data.name;
