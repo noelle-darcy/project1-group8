@@ -6,10 +6,13 @@ body {
 
   header {
     background: url("../image/pexels-anni-roenkae-3435249.jpg");
+    background-position: center;
+    background-size: cover;
     background-color: #4F3A65;
     color: #DFF0EA;
     text-align: center;
     font-size: 80px;
+    padding: 2cm;
   }
   
   h1 {
@@ -22,8 +25,35 @@ body {
     padding: 30px;
   }
 
+h3 {
+  text-align: center;
+  font-size: 30px;
+  padding: 2cm;
+}
+
+  section {
+    flex-wrap: wrap;
+    font-size: 20px;
+    font-family: 'Noto Sans Mono', monospace;
+    padding: 100px;
+    background-color: #4F3A65;
+    color: #DFF0EA;
+    padding-left: 200px;
+  }
+
+  legend {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 30px;
+  }
+
+  divbutton {
+    text-align: center;
+    padding: 2cm;
+  }
+
 .generateBtn{
-    border:none;
+    border: none;
     border-radius: 5px;
     padding: 10px;
     color: #DFF0EA;
