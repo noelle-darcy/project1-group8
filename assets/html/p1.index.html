@@ -25,7 +25,7 @@
     <!-- this is the feature that Marcus will work on. List to select video games-->
 
     <section>
-        <form method="post" action="/Test/Post/">
+        <form>
             <fieldset>
                 <legend>Genre</legend>
                 <input type="checkbox" name="Genre" value="Adventure">Adventure<br>
@@ -46,17 +46,18 @@
                 <legend>Platform</legend>
                 <input type="checkbox" name="Platform" value="XBox">XBox<br>
                 <input type="checkbox" name="Platform" value="Playstation">Playstation<br>
-                <input type="checkbox" name="Platform" value="PC">PC<br>
+                <input type="checkbox" name="Platform" value="PC" id="pc">PC<br>
             </fieldset3>
             <fieldset4>
                 <legend>If You're Jung</legend>
-                <input type="checkbox" name="If You're Jung" value="Jung">If You're Jung<br>
+                <input type="checkbox" name="If You're Jung" value="Jung" id="jungfun">If You're Jung<br>
             </fieldset4>
-           </form>  
+            <button id="form-button">submit</button>
+        </form>  
     </section>
 
     <!-- Allison will work on the submit button feature -->
     <button class="generateBtn">Click for Suggestions!</button>
-    <script src="/project1-group8/assets/js/script.js"></script>
+    <script src="../js/script.js"></script>
   </body>
 </html>
