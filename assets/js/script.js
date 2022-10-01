@@ -2,12 +2,39 @@ var submitBtn = document.querySelector(".generateBtn");
 var gameNameEl = document.getElementById("gameName");
 
 function generate(e) {
-  if (e.traget === submitBtn) {
-  window.location.href = "p2.index.html";
+  if (e.target === submitBtn) {
+    window.location.href = "p2.index.html";
   }
 }
 
-addEventListener("click", generate);
+
+// addEventListener("click", generate);
+
+var formBtn = document.getElementById("form-button");
+formBtn.addEventListener('click', validateSelection);
+var selectedItem = "";
+
+function validateSelection(event){
+  event.preventDefault();
+  var checkedItem = document.getElementById("jungfun");
+  console.log("check", checkedItem.checked);
+  if(checkedItem.checked) {
+    window.open("https://www.playlostark.com/en-us")//redirect to another url
+  }
+
+  var pcItem = document.getElementById("pc");
+  // console.log("pc", pcItem.checked);
+  if(pcItem.checked) {
+    // console.log("success"); //whatever you want to load on the page
+    selectedItem = "pc";
+    localStorage.setItem("checkedItem", selectedItem);
+    window.open("/assets/html/p2.index.html");
+
+    //ask Noelle what information she needs to load the matching content 
+    //probably pass id for the checked box 
+    //localStorage.getItem("checkedItem");
+  }
+}
 
 const apiKey = "4fde65f23f6d46c2aba8a6a1773fe57f";
 
@@ -69,6 +96,7 @@ function genres(data) {
   // }
 }
 
+
 //   function esrbRating(data) {
     // console.log(data.results[i]);
     // console.log(data);
@@ -78,10 +106,6 @@ function genres(data) {
         // console.log(rating_id);
     // }
 
-    // console.log(rating_id);
-//   }
-  // console.log(rating_id);
-  // ratings.push(rating_id);
 
 //   function eachGame (data) {
 //     esrbRating (data.results[i].esrb_rating.id);
