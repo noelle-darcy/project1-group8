@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-// var submitBtn = document.querySelector(".generateBtn");
-
-// function generate(e) {
-//   window.location.href = "p2.index.html";
-// }
-=======
 var submitBtn = document.querySelector(".generateBtn");
 var gameNameEl = document.getElementById("gameName");
 
@@ -13,23 +6,9 @@ function generate(e) {
     window.location.href = "p2.index.html";
   }
 }
->>>>>>> 5b48819742cf558b30e9c8f88dbd30b553ca0556
+
 
 // addEventListener("click", generate);
-
-<<<<<<< HEAD
-// const options = {
-//   method: "GET",
-//   headers: {
-//     "X-RapidAPI-Key": "43e4f0813bmshaeb0bec60abdfdbp1c70e2jsn4d7c11d14ce6",
-//     "X-RapidAPI-Host": "gaming-news.p.rapidapi.com",
-//   },
-// };
-
-// fetch("https://gaming-news.p.rapidapi.com/news", options)
-//   .then((response) => response.json())
-//   .then((response) => console.log(response))
-//   .catch((err) => console.error(err));
 
 var formBtn = document.getElementById("form-button");
 formBtn.addEventListener('click', validateSelection);
@@ -56,7 +35,7 @@ function validateSelection(event){
     //localStorage.getItem("checkedItem");
   }
 }
-=======
+
 const apiKey = "4fde65f23f6d46c2aba8a6a1773fe57f";
 
 fetch(`https://rawg.io/api/games?page=1&token&key=${apiKey}`)
@@ -64,6 +43,7 @@ fetch(`https://rawg.io/api/games?page=1&token&key=${apiKey}`)
     return response.json();
   })
   .then(function (data) {
+    console.log(data);
     var ratings = [];
     // console.log(data);
     for (var i = 0; i < data.results.length; i++) {
@@ -74,16 +54,12 @@ fetch(`https://rawg.io/api/games?page=1&token&key=${apiKey}`)
     var genresArray = [];
     //if(input:checked == genres) Array
     for (let i = 0; i < ratings.length; i++) {
-      // console.log(" Do it do be?", ratings[i]);
-      //genresArray.push(genres(ratings[i]));
       genresArray.push(genres(ratings[i]));
     }
-    // console.log("this is outside genresArray", genresArray);
     for (let i = 0; i < genresArray.length; i++) {
       for (let j = 0; j < genresArray[i].genres.length; j++) {
-        //console.log(genresArray[i].genres[j]);
         if (genresArray[i].esrbRating != null) {
-          if (genresArray[i].genres[j].id == 3) {
+          if (genresArray[i].genres[j].id == 7) {
             var gameName = document.createElement("p");
             gameName.textContent = genresArray[i].name;
             gameNameEl.append(gameName);
@@ -120,20 +96,17 @@ function genres(data) {
   // }
 }
 
-function esrbRating(data) {
-  // console.log(data.results[i]);
-  // console.log(data);
-  // var rating_id = data.results[i].esrb_rating.id;
-  if (data.esrb_rating != null) {
-    rating_id = data.esrb_rating;
-    // console.log(rating_id);
-  }
 
-  // console.log(rating_id);
-}
-// console.log(rating_id);
-// ratings.push(rating_id);
-// }
+//   function esrbRating(data) {
+    // console.log(data.results[i]);
+    // console.log(data);
+    // var rating_id = data.results[i].esrb_rating.id;
+    // if (data.esrb_rating != null) {
+    //     rating_id = data.esrb_rating;
+        // console.log(rating_id);
+    // }
+
+
 //   function eachGame (data) {
 //     esrbRating (data.results[i].esrb_rating.id);
 
@@ -153,4 +126,3 @@ function esrbRating(data) {
 //platform: 1=PC, 2=Playstation, 3=XBox
 //data.results[5].parent_platforms[0].platform.id
 //will need a for loop to look at all offered platforms
->>>>>>> 5b48819742cf558b30e9c8f88dbd30b553ca0556
