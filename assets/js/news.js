@@ -10,7 +10,6 @@ fetch("https://gaming-news.p.rapidapi.com/news", options)
   .then((response) => response.json())
   .then((response) => {
     console.log(response);
-    // for (i = 0; i < response.length; i++) {
     var min = 0;
     var max = response.length;
     var randomNum = Math.floor(Math.random() * (max - min) + min);
@@ -24,6 +23,5 @@ fetch("https://gaming-news.p.rapidapi.com/news", options)
     document.querySelector(
       ".src"
     ).innerText = `Source: ${response[randomNum].source}`;
-    // }
   })
   .catch((err) => console.error(err));
