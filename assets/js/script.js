@@ -13,202 +13,189 @@ var actionItem = document.getElementById("action");
 var rpgItem = document.getElementById("rpg");
 var shooterItem = document.getElementById("shooter");
 var gameName = document.createElement("p");
-
-var pcTrue = 0;
-var xboxTrue = 0;
-var playstationTrue = 0;
-var everyoneTrue = 0;
-var kidsTrue = 0;
-var teensTrue = 0;
-var matureTrue = 0;
-var adventureTrue = 0;
-var indieTrue = 0;
-var puzzleTrue = 0;
-var actionTrue = 0;
-var rpgTrue = 0;
-var shooterTrue = 0;
-
-
+var page1 = document.getElementById("page1");
+var page2 = document.getElementById("page2");
+var recommendedGames = [];
+var neededVarArr = [];
+var checkedBoxes = {
+    pcTrue: 0,
+    xboxTrue: 0,
+    playstationTrue: 0,
+    everyoneTrue: 0, 
+    kidsTrue: 0, 
+    teensTrue: 0, 
+    matureTrue: 0, 
+    adventureTrue: 0, 
+    indieTrue: 0, 
+    puzzleTrue: 0, 
+    actionTrue: 0,
+    rpgTrue: 0,
+    shooterTrue: 0
+}
 
 var formBtn = document.getElementById("form-button");
-formBtn.addEventListener('click', validateSelection);
-var selectedItem = "";
+formBtn.addEventListener('click', mainFunction);
+// var selectedItem = "";
 
-function validateSelection(event){
+function mainFunction(event) {
   event.preventDefault();
   var checkedItem = document.getElementById("jungfun");
-//   console.log("check", checkedItem.checked);
   if(checkedItem.checked) {
     window.open("https://www.playlostark.com/en-us")//redirect to another url
   }else {
-    if(pcItem.checked) {
-        pcTrue = 1;
-    }if(xboxItem.checked) {
-        xboxTrue = 1;
-    }if(playstationItem.checked) {
-        playstationTrue = 1;
-    }if(everyoneItem.checked) {
-        everyoneTrue = 1;
-    }if(kidsItem.checked) {
-        kidsTrue = 1;
-    }if(teensItem.checked) {
-        teensTrue = 1;
-    }if(matureItem.checked) {
-        matureTrue = 1;
-    }if(adventureItem.checked) {
-        adventureTrue = 1;
-    }if(indieItem.checked) {
-        indieTrue = 1; 
-    }if(puzzleItem.checked) {
-        puzzleTrue = 1; 
-    }if(actionItem.checked) {
-        actionTrue = 1;
-    }if(rpgItem.checked) {
-        rpgTrue = 1;
-    }if(shooterItem.checked) {
-        shooterTrue = 1;
-    }
-    window.open("/assets/html/p2.index.html");
+    // checkedCategories(event.path)
+    page1.style.display = "none";
+    page2.style.display = "block";
+    checkedCategories(event);
+    console.log(checkedBoxes);
+    callingApi(checkedBoxes);
+    // var neededVarArr2 = callingApi();
+    console.log('it worked so far');
+    console.log(neededVarArr);
   }
 }
 
-//   if(actionItem.checked) {
-
-//   }
-
-
-//   if(pcItem.checked) {
-//     // console.log("success"); //whatever you want to load on the page
-//     selectedItem = "pc";
-//     localStorage.setItem("checkedItem", selectedItem);
-//     //ask Noelle what information she needs to load the matching content 
-//     //probably pass id for the checked box 
-//     //localStorage.getItem("checkedItem");
-//   }
-// }
-
-const apiKey = "4fde65f23f6d46c2aba8a6a1773fe57f";
+function callingApi (checkedBoxes) {
+  const apiKey = "4fde65f23f6d46c2aba8a6a1773fe57f";
 
 fetch(`https://rawg.io/api/games?page=1&token&key=${apiKey}`)
   .then(function (response) {
     return response.json();
   })
   .then(function (data) {
-   seperatingGenres(data);
-});
-
-function seperatingGenres(data) {
-    var ratings = [];
-    for (var i = 0; i < data.results.length; i++) {
-      ratings.push(data.results[i]);
-    }
- var genresArray = [];
-    for (let i = 0; i < ratings.length; i++) {
-      genresArray.push(genres(ratings[i]));
-    }
-    for (let i = 0; i < genresArray.length; i++) {
-      for (let j = 0; j < genresArray[i].genres.length; j++) {
-        if (genresArray[i].esrbRating != null) {
-          if (genresArray[i].genres[j].id == 3) {
-            var gameName = document.createElement("p");
-            gameName.textContent = genresArray[i].name;
-            gameNameEl.append(gameName);
-          }
-        }
-      }
-    }
+    console.log(data);
+   neededVarArr = sortingData(data);
+   console.log(neededVarArr);
+   if(checkedBoxes.pcTrue === 1) {
+    for (var i = 0; i < neededVarArr.length; i++) {
+      for (var j = 0; j < neededVarArr[i].platforms.length; j++) {
+        if (neededVarArr[i].platforms[j] == 1) {
+          recommendedGames.push(neededVarArr[i].name);
+        }}}}
+  if(checkedBoxes.xboxTrue === 1) {
+    for (var i = 0; i < neededVarArr.length; i++) {
+      for (var j = 0; j < neededVarArr[i].platforms.length; j++) {
+          if (neededVarArr[i].platforms[j] == 3) {
+            recommendedGames.push(neededVarArr[i].name);
+              }}}}
+              if(checkedBoxes.playstationTrue === 1) {
+                for (var i = 0; i < neededVarArr.length; i++) {
+                  for (var j = 0; j < neededVarArr[i].platforms.length; j++) {
+                    if (neededVarArr[i].platforms[j] == 2) {
+                      recommendedGames.push(neededVarArr[i].name);
+                    }}}}
+                    if(checkedBoxes.shooterTrue === 1) {
+                      for (var i = 0; i < neededVarArr.length; i++) {
+                        for (var j = 0; j < neededVarArr[i].genres.length; j++) {
+                          if (neededVarArr[i].genres[j] == 2) {
+                            recommendedGames.push(neededVarArr[i].name);
+                          }}}}
+                          if(checkedBoxes.adventureTrue === 1) {
+                            for (var i = 0; i < neededVarArr.length; i++) {
+                              for (var j = 0; j < neededVarArr[i].genres.length; j++) {
+                                if (neededVarArr[i].genres[j] == 3) {
+                                  recommendedGames.push(neededVarArr[i].name);
+                                }}}}
+                                if(checkedBoxes.actionTrue === 1) {
+                                  for (var i = 0; i < neededVarArr.length; i++) {
+                                    for (var j = 0; j < neededVarArr[i].genres.length; j++) {
+                                      if (neededVarArr[i].genres[j] == 4) {
+                                        recommendedGames.push(neededVarArr[i].name);
+                                      }}}}
+                                      if(checkedBoxes.rpgTrue === 1) {
+                                        for (var i = 0; i < neededVarArr.length; i++) {
+                                          for (var j = 0; j < neededVarArr[i].genres.length; j++) {
+                                            if (neededVarArr[i].genres[j] == 5) {
+                                              recommendedGames.push(neededVarArr[i].name);
+                                            }}}}
+                                            if(checkedBoxes.puzzleTrue === 1) {
+                                              for (var i = 0; i < neededVarArr.length; i++) {
+                                                for (var j = 0; j < neededVarArr[i].genres.length; j++) {
+                                                  if (neededVarArr[i].genres[j] == 7) {
+                                                    recommendedGames.push(neededVarArr[i].name);
+                                                  }}}}
+                                                  if(checkedBoxes.indieTrue === 1) {
+                                                    for (var i = 0; i < neededVarArr.length; i++) {
+                                                      for (var j = 0; j < neededVarArr[i].genres.length; j++) {
+                                                        if (neededVarArr[i].genres[j] == 51) {
+                                                          recommendedGames.push(neededVarArr[i].name);
+                                                        }}}}
+                                                        if(checkedBoxes.everyoneTrue === 1) {
+                                                          for (var i = 0; i < neededVarArr.length; i++) {
+                                                              if (neededVarArr[i].esrb == 1) {
+                                                                recommendedGames.push(neededVarArr[i].name);
+                                                              }}}if(checkedBoxes.kidsTrue === 1) {
+                                                                for (var i = 0; i < neededVarArr.length; i++) {
+                                                                    if (neededVarArr[i].esrb == 2) {
+                                                                      recommendedGames.push(neededVarArr[i].name);
+                                                                    }}}if(checkedBoxes.teensTrue === 1) {
+                                                                      for (var i = 0; i < neededVarArr.length; i++) {
+                                                                          if (neededVarArr[i].esrb == 3) {
+                                                                            recommendedGames.push(neededVarArr[i].name);
+                                                                          }}}if(checkedBoxes.matureTrue === 1) {
+                                                                            for (var i = 0; i < neededVarArr.length; i++) {
+                                                                                if (neededVarArr[i].esrb == 4) {
+                                                                                  recommendedGames.push(neededVarArr[i].name);
+                                                                                }}}
+                                                                                console.log(recommendedGames);
+                                                                                var uniqueRecommendedGames = [...new Set(recommendedGames)];
+                                                                                console.log(uniqueRecommendedGames);
+                                                                                gameNameEl.textContent=uniqueRecommendedGames;
+}); 
 }
 
-function genres(data) {
-    var filteredObj = {
-      name: "",
-      genres: [],
-      esrbRating: "",
-    };
-    // console.log(data);
-    filteredObj.name = data.name;
-    filteredObj.genres = data.genres;
-    return filteredObj;
 
 
-//     console.log(data);
-//     var ratings = [];
-//     for (var i = 0; i < data.results.length; i++) {
-//       ratings.push(data.results[i]);
-//     }
-//  var genresArray = [];
-//     for (let i = 0; i < ratings.length; i++) {
-//       genresArray.push(genres(ratings[i]));
-//     }
-//     for (let i = 0; i < genresArray.length; i++) {
-//       for (let j = 0; j < genresArray[i].genres.length; j++) {
-//         if (genresArray[i].esrbRating != null) {
-//           if (genresArray[i].genres[j].id == 3) {
-//             // gameName.textContent = genresArray[i].name;
-//             gameNameEl.append(gameName);
-//           }
-//         }
-//       }
-//     }
+function sortingData(data) {
+  arr = [];
+  platformsArray = [];
+  genresArray = [];
+    for (var i = 0; i < data.results.length; i++) {
+      for(var j = 0; j < data.results[i].parent_platforms.length; j++) {
+        platformsArray.push(data.results[i].parent_platforms[j].platform.id); 
+      }
+      for(var k = 0; k < data.results[i].genres.length; k++) {
+        genresArray.push(data.results[i].genres[k].id);
+      }
 
-//     // var filteredGenresArray = genresArray.filter(genres => {
-//     //   if(ratings.genres)
-//     //})
-//     // console.log(ratings);
-//   });
-
-// function genres(data) {
-//   var filteredObj = {
-//     name: "",
-//     genres: [],
-//     esrbRating: "",
-//   };
-//   // console.log(data);
-//   filteredObj.name = data.name;
-//   filteredObj.genres = data.genres;
-//   return filteredObj;
-//   // if(data[i].genres[i] == 2 ) {
-
-//   // }
-//   // else if(data[i].id == 3){
-//   //     return data[i];
-//   // } else if (data[i].id == 4) {
-//   //     return data[i];
-//   // } else {
-//   //     console.log('it no exist');
-//   // }
-// }
-
-//   function esrbRating(data) {
-//     // console.log(data.results[i]);
-//     // console.log(data);
-//     // var rating_id = data.results[i].esrb_rating.id;
-//     if (data.esrb_rating != null) {
-//         rating_id = data.esrb_rating;
-//         // console.log(rating_id);
-//     }
-
-    // console.log(rating_id);
+      arr.push({
+        name: " " + data.results[i].name,
+        platforms: platformsArray,
+        genres: genresArray,
+        esrb: data.results[i].esrb_rating.id 
+      })
+      platformsArray = [];
+      genresArray = [];
+    }
+   return arr;
   }
-  // console.log(rating_id);
-  // ratings.push(rating_id);
 
-//   function eachGame (data) {
-//     esrbRating (data.results[i].esrb_rating.id);
 
-//   }
-
-//   function esrbRating (ratingID) {
-//     console.log(ratingID);
-//   }
-
-//ALL ONE MORE BC OF NULL
-//esrb rating: 1=everyone, 2=10+, 3=teen, 4=mature, 5=adult only
-
-//genres: 2=shooter, 3=adventure, 4=action, 5=RPG, 7=puzzle, 51=indie
-//data.results[5].genres[0].id
-//will need a for loop to look at all genres
-
-//platform: 1=PC, 2=Playstation, 3=XBox
-//data.results[5].parent_platforms[0].platform.id
-//will need a for loop to look at all offered platform;
+  function checkedCategories(event) {
+    if(pcItem.checked) {
+      checkedBoxes.pcTrue = 1;
+  }if(xboxItem.checked) {
+      checkedBoxes.xboxTrue = 1;
+  }if(playstationItem.checked) {
+    checkedBoxes.playstationTrue = 1;
+  }if(everyoneItem.checked) {
+    checkedBoxes.everyoneTrue = 1;
+  }if(kidsItem.checked) {
+    checkedBoxes.kidsTrue = 1;
+  }if(teensItem.checked) {
+    checkedBoxes.teensTrue = 1;
+  }if(matureItem.checked) {
+    checkedBoxes.matureTrue = 1;
+  }if(adventureItem.checked) {
+    checkedBoxes.adventureTrue = 1;
+  }if(indieItem.checked) {
+    checkedBoxes.indieTrue = 1; 
+  }if(puzzleItem.checked) {
+    checkedBoxes.puzzleTrue = 1; 
+  }if(actionItem.checked) {
+    checkedBoxes.actionTrue = 1;
+  }if(rpgItem.checked) {
+    checkedBoxes.rpgTrue = 1;
+  }if(shooterItem.checked) {
+    checkedBoxes.shooterTrue = 1;
+  }}
