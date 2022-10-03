@@ -14,14 +14,8 @@ fetch("https://gaming-news.p.rapidapi.com/news", options)
     var max = response.length;
     var randomNum = Math.floor(Math.random() * (max - min) + min);
     console.log(randomNum);
-    var art = (document.querySelector(
-      ".articleUrl"
-    ).innerText = `Url: ${response[randomNum].url}`);
-    document.querySelector(
-      ".title"
-    ).innerText = `Title: ${response[randomNum].title}`;
-    document.querySelector(
-      ".src"
-    ).innerText = `Source: ${response[randomNum].source}`;
+    var art = (document.querySelector(".articleUrl").innerText = `Url: ${response[randomNum].url}`);
+    document.querySelector(".title").innerText = `Title: ${response[randomNum].title}`;
+    document.querySelector(".src").innerText = `Source: ${response[randomNum].source}`;
   })
   .catch((err) => console.error(err));

@@ -37,46 +37,40 @@
     <!-- this is the feature that Marcus will work on. List to select video games-->
 
     <section>
-      <form method="post" action="/Test/Post/">
-        <fieldset>
-          <legend>Genre</legend>
-          <input type="checkbox" name="Genre" value="Adventure" />
-          Adventure<br />
-          <input type="checkbox" name="Genre" value="Indie" /> Indie<br />
-          <input type="checkbox" name="Genre" value="Puzzle" /> Puzzle<br />
-          <input type="checkbox" name="Genre" value="Action" /> Action<br />
-          <input type="checkbox" name="Genre" value="RPG" /> RPG<br />
-          <input type="checkbox" name="Genre" value="Shooter" /> Shooter<br />
-        </fieldset>
-        <fieldset2>
-          <legend>ESRB Ratings</legend>
-          <input type="checkbox" name="ESRB Ratings" value="Everyone" />
-          Everyone<br />
-          <input type="checkbox" name="ESRB Ratings" value="10+" /> 10+<br />
-          <input type="checkbox" name="ESRB Ratings" value="Teen" /> Teen<br />
-          <input type="checkbox" name="ESRB Ratings" value="Mature" />
-          Mature<br />
-        </fieldset2>
-        <fieldset3>
-          <legend>Platform</legend>
-          <input type="checkbox" name="Platform" value="XBox" /> XBox<br />
-          <input type="checkbox" name="Platform" value="Playstation" />
-          Playstation<br />
-          <input type="checkbox" name="Platform" value="PC" /> PC<br />
-        </fieldset3>
-        <fieldset4>
-          <legend>If You're Jung</legend>
-          <input type="checkbox" name="If You're Jung" value="Jung" /> If You're
-          Jung<br />
-        </fieldset4>
-      </form>
+        <form>
+            <fieldset>
+                <legend>Genre</legend>
+                <input type="checkbox" name="Genre" value="Adventure" id="adventure">Adventure<br>
+                <input type="checkbox" name="Genre" value="Indie" id="indie">Indie<br>
+                <input type="checkbox" name="Genre" value="Puzzle" id="puzzle">Puzzle<br>
+                <input type="checkbox" name="Genre" value="Action" id="action">Action<br>
+                <input type="checkbox" name="Genre" value="RPG" id="rpg">RPG<br>
+                <input type="checkbox" name="Genre" value="Shooter" id="shooter">Shooter<br>
+            </fieldset>
+            <fieldset2>
+                <legend>ESRB Ratings</legend>
+                <input type="checkbox" name="ESRB Ratings" value="Everyone" id="everyone">Everyone<br>
+                <input type="checkbox" name="ESRB Ratings" value="10+" id="kids">10+<br>
+                <input type="checkbox" name="ESRB Ratings" value="Teen" id="teen">Teen<br>
+                <input type="checkbox" name="ESRB Ratings" value="Mature" id="mature">Mature<br>
+            </fieldset2>
+            <fieldset3>
+                <legend>Platform</legend>
+                <input type="checkbox" name="Platform" value="XBox" id="xbox">XBox<br>
+                <input type="checkbox" name="Platform" value="Playstation" id="playstation">Playstation<br>
+                <input type="checkbox" name="Platform" value="PC" id="pc">PC<br>
+            </fieldset3>
+            <fieldset4>
+                <legend>If You're Jung</legend>
+                <input type="checkbox" name="If You're Jung" value="Jung" id="jungfun">If You're Jung<br>
+            </fieldset4>
+            <button class="generateBtn" id="form-button">Click for Suggestions!</button>
+        </form>  
     </section>
 
     <!-- Allison will work on the submit button feature -->
-  <divbutton>
-    <button class="generateBtn">Click for Suggestions!</button>
-    <script src="/project1-group8/assets/js/script.js"></script>
-    <script src="/project1-group8/assets/js/news.js"></script>
-  </divbutton>
+    <!-- <button class="generateBtn">Click for Suggestions!</button> -->
+    <script src="../js/script.js"></script>
+    <script src="../js/news.js"></script>
   </body>
 </html>
