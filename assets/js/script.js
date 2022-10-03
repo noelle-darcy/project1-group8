@@ -212,3 +212,31 @@ function genres(data) {
 //platform: 1=PC, 2=Playstation, 3=XBox
 //data.results[5].parent_platforms[0].platform.id
 //will need a for loop to look at all offered platform;
+
+
+//Abigail input local storage
+signUpButton.addEventListener("click", function(event) {
+  event.preventDefault();
+  
+  var user = {
+    gameNameEl: gameNameEl.value.trim(),
+    pcIte: pcIte.value.trim(),
+    xboxIteml: xboxItem.value.trim(),
+    playstationItem: playstationItem.value.trim()
+    everyoneItem: everyoneItem.value.trim(),
+    kidsItem: kidsItem.value.trim(),
+    teensItem: teensItem.value.trim(),
+    matureItem: matureItem.value.trim()
+    firstName: firstNameInput.value.trim(),
+    adventureItem: adventureItem.value.trim(),
+    indieItem: indieItem.value.trim(),
+    puzzleItem: puzzleItem.value.trim()
+    actionItem: actionItem.value.trim(),
+    rpgItem: rpgItem.value.trim(),
+    shooterItem: shooterItem.value.trim(),
+    gameName: gameName.value.trim()
+  };
+
+  localStorage.setItem("user", JSON.stringify(user));
+  
+});
